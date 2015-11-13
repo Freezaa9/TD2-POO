@@ -12,6 +12,7 @@ package td2.poo;
  */
 public class Rectangle extends Polygone {
 
+        double a,b;
 	/**
 	 * 
 	 * @param sg
@@ -19,11 +20,13 @@ public class Rectangle extends Polygone {
 	 */
 	public Rectangle(Point sg, Point id) {            
             super(new Point[]{sg,new Point(sg.getX(),id.getY()), id,new Point(id.getX(),sg.getY())});
+            this.a=this.getSommets()[0].distance(this.getSommets()[1]);
+            this.b=this.getSommets()[0].distance(this.getSommets()[3]);
 	}
 
         @Override
 	public double surface() {
-            return (this.getSommets()[0].distance(this.getSommets()[1]))*(this.getSommets()[0].distance(this.getSommets()[3]));   
+            return a*b;   
 	}
 
         @Override

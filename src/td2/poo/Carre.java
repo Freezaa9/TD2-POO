@@ -11,6 +11,7 @@ package td2.poo;
  */
 public class Carre extends Rectangle {
 
+        double l;
 	/**
 	 * 
 	 * @param sg
@@ -18,12 +19,15 @@ public class Carre extends Rectangle {
 	 */
 	public Carre(Point sg, double l) {
             super(sg, new Point (sg.getX() - l, sg.getY() + l));
+            this.l=l;
 	}
-
+        
+        @Override
 	public double surface() {
-            return (this.getSommets()[0].distance(this.getSommets()[1]))*2;
+            return l*2;
 	}
 
+        @Override
 	public String toString() {
             StringBuffer buff = new StringBuffer();
             buff.append("Carré à plat ");
