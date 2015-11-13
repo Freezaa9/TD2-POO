@@ -16,9 +16,9 @@ public class TD2POO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Point p1 = new Point(0, 0);
-        Point p2 = new Point(0, 657);
-        Point p3 = new Point(1, 2);
+        Point p1 = new Point(0, 1);
+        Point p2 = new Point(1,2);
+        Point p3 = new Point(2,4);
         Point p4 = new Point(3, 1);
         Point p5 = new Point(2, 4);
         Point p6 = new Point(3, 5);
