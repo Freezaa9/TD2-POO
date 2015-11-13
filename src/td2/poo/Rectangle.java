@@ -18,7 +18,7 @@ public class Rectangle extends Polygone {
 	 * @param sg
 	 * @param id
 	 */
-	public Rectangle(Point sg, Point id) {            
+	public Rectangle(Point sg, Point id)  throws Exception  {            
             super(new Point[]{sg,new Point(sg.getX(),id.getY()), id,new Point(id.getX(),sg.getY())});
             this.a=this.getSommets()[0].distance(this.getSommets()[1]);
             this.b=this.getSommets()[0].distance(this.getSommets()[3]);

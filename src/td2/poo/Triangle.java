@@ -20,7 +20,7 @@ public class Triangle extends Polygone {
     double a,b,c;
     
     
-    public Triangle(Point p1, Point p2, Point p3) {
+    public Triangle(Point p1, Point p2, Point p3)  throws Exception {
         super(new Point[]{p1, p2, p3});
         this.a = this.getSommets()[0].distance(this.getSommets()[1]);
         this.b = this.getSommets()[1].distance(this.getSommets()[2]);

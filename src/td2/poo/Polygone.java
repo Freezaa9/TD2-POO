@@ -17,7 +17,22 @@ public class Polygone {
      *
      * @param sommets
      */
-    public Polygone(Point[] sommets) {
+    public Polygone(Point[] sommets) throws Exception {
+
+        if (sommets.length < 3) {
+            throw new Exception("Un polygone ne peut pas avoir moins de trois points");
+        }
+        int compteur = 0;
+        for (int i = 0; i < sommets.length; i++) {
+            for (int j = 0; j < sommets.length; j++) {
+                if (sommets[i].equals(sommets[j])) {
+                    compteur++;
+                }
+            }
+        }
+        if (compteur > sommets.length) {
+            throw new Exception("Un polygone ne peut pas avoir deux points identiques");
+        }
         this.sommets = sommets;
     }
 
@@ -28,7 +43,7 @@ public class Polygone {
     public double perimetre() {
         double result = 0;
         for (int i = 0; i < getSommets().length; i++) {
-            result += getSommets()[i].distance(getSommets()[(i+1) % getSommets().length]);
+            result += getSommets()[i].distance(getSommets()[(i + 1) % getSommets().length]);
         }
 
         return result;
@@ -49,7 +64,7 @@ public class Polygone {
 
     /**
      *
-     * @param p
+     * @param obj
      */
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof Polygone)) {
