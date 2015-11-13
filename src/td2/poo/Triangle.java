@@ -32,9 +32,9 @@ public class Triangle extends Polygone {
     }
 
     public String toString() {
-        double a = this.getSommets()[0].distance(this.getSommets()[(1) % getSommets().length]);
-        double b = this.getSommets()[0].distance(this.getSommets()[(1) % getSommets().length]);
-        double c = this.getSommets()[0].distance(this.getSommets()[(1) % getSommets().length]);
+        double a = this.getSommets()[0].distance(this.getSommets()[1]);
+        double b = this.getSommets()[1].distance(this.getSommets()[2]);
+        double c = this.getSommets()[2].distance(this.getSommets()[0]);
         StringBuffer buff = new StringBuffer();
         buff.append("Triangle ");
         if (a == b && a == c) {
