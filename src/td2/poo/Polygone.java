@@ -6,16 +6,31 @@
 package td2.poo;
 
 /**
+ * <h1>{@code Polygone} - Abstraction d'un polygone</h1>
+ * <p>
+ * Cette classe encapsule les propriétés et les comportements propres à la
+ * classe {@code Polygone}</p>
  *
- * @author Geoffrey
+ * @author Geoffrey Harrazi &amp; Lucas Morel
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ * 
  */
 public class Polygone {
 
     protected Point[] sommets;
 
     /**
-     *
-     * @param sommets
+     * <p>
+     * Constructeur {@code Polygone} de polygone qui prend en paramètre un
+     * tableau de points (les sommets du polygone).
+     * <p>
+     * @param sommets Point[]
+     *@throws Exception si un polygonne à moins de trois sommets et si il est composé 
+     * de deux sommets identique.
+     * 
+     * @since V1.0.0
      */
     public Polygone(Point[] sommets) throws Exception {
 
@@ -36,10 +51,26 @@ public class Polygone {
         this.sommets = sommets;
     }
 
+    /**
+     * <p>
+     * Getteur de sommets
+     * <p>
+     * @return Point[] Retourne le tableau de point sommets
+     *
+     * @since V1.0.0
+     */
     public Point[] getSommets() {
         return this.sommets;
     }
 
+    /**
+     * <p>
+     * Méthode qui calcul et retourne le périmètre d'un polygone.
+     * <p>
+     * @return Double : Le périmètre du polygone
+     *
+     * @since V1.0.0
+     */
     public double perimetre() {
         double result = 0;
         for (int i = 0; i < getSommets().length; i++) {
@@ -49,10 +80,27 @@ public class Polygone {
         return result;
     }
 
+    /**
+     * <p>
+     * Méthode qui retourne -1
+     * <p>
+     * @return Double
+     *
+     * @since V1.0.0
+     */
     public double surface() {
         return -1;
     }
 
+    /**
+     * <p>
+     * Méthode qui renvoie un String contenant la liste des sommets qui compose
+     * le polygone
+     * <p>
+     * @return String : liste des sommets du polygone
+     *
+     * @since V1.0.0
+     */
     public String texteSommets() {
         StringBuffer buff = new StringBuffer();
         for (Point p : getSommets()) {
@@ -63,8 +111,13 @@ public class Polygone {
     }
 
     /**
+     * <p>
+     * Méthode qui vérifie si deux polygone sont égaux ou pas.
+     * <p>
+     * @param obj Object
+     * @return Boolean : si les polygones sont égaux
      *
-     * @param obj
+     * @since V1.0.0
      */
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof Polygone)) {
@@ -87,6 +140,15 @@ public class Polygone {
         return true;
     }
 
+    /**
+     * <p>
+     * Méthode qui retourne un string qui représente l'objet.
+     * <p>
+     *
+     * @return String : un string qui représente l'objet.
+     *
+     * @since V1.0.0
+     */
     public String toString() {
         StringBuffer buff = new StringBuffer();
         buff.append("Polygone à ");

@@ -8,7 +8,6 @@
  * @version 1.0.0
  * @since 1.0.0
  *
- * @see td2.TD2 TD2, classe de test
  */
 package td2.poo;
 
@@ -101,7 +100,7 @@ public class Point {
      * @param obj Object    
      * @return Boolean : Les Points ont des coordonées égales ou pas. 
      *
-     * @see public static boolean memeReel(double x, double y)
+     * @see memeReel
      * @since V1.0.0
      */
     public boolean equals(Object obj) {
@@ -111,7 +110,16 @@ public class Point {
         Point p = (Point) obj;
         return (Point.memeReel(this.getX(), p.getX())) && (Point.memeReel(this.getY(), p.getY()));
     }
-
+    
+     /**
+     * <p>
+     * Méthode qui retourne un string qui représente l'objet.      
+     * <p>
+     *   
+     * @return String : un string qui représente l'objet.  
+     * 
+     * @since V1.0.0
+     */
     public String toString() {
         StringBuffer buff = new StringBuffer();
         buff.append('<');
