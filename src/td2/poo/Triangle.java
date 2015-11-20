@@ -15,7 +15,7 @@ package td2.poo;
  * @version 1.0.0
  * @since 1.0.0
  *
- * 
+ *
  */
 public class Triangle extends Polygone {
 
@@ -32,17 +32,14 @@ public class Triangle extends Polygone {
      * @param p1 Premier point du triangle
      * @param p2 Deuxième point du triangle
      * @param p3 Troisième point du triangle
-     * @throws Exception si un triangle à moins de trois sommets et si il est composé 
-     * de deux sommets identique.
+     * @throws Exception si un triangle à moins de trois sommets et si il est
+     * composé de deux sommets identique.
      * @see Polygone
      * @since V1.0.0
      */
     public Triangle(Point p1, Point p2, Point p3) throws Exception {
         super(new Point[]{p1, p2, p3});
-        this.a = this.getSommets()[0].distance(this.getSommets()[1]);
-        this.b = this.getSommets()[1].distance(this.getSommets()[2]);
-        this.c = this.getSommets()[2].distance(this.getSommets()[0]);
-
+        this.a = this.b = this. c = -1;
     }
 
     /**
@@ -56,8 +53,18 @@ public class Triangle extends Polygone {
      */
     @Override
     public double surface() {
+        if (a < 0 || b < 0 || c < 0) {
+            calcABC();
+        }
         double p = this.perimetre() / 2;
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    }
+
+    //A valider
+    public void calcABC() {
+        this.a = this.getSommets()[0].distance(this.getSommets()[1]);
+        this.b = this.getSommets()[1].distance(this.getSommets()[2]);
+        this.c = this.getSommets()[2].distance(this.getSommets()[0]);
     }
 
     /**
@@ -71,6 +78,9 @@ public class Triangle extends Polygone {
      */
     @Override
     public String toString() {
+        if (a < 0 || b < 0 || c < 0) {
+            calcABC();
+        }
         StringBuffer buff = new StringBuffer();
         buff.append("Triangle ");
         if (a == b && a == c) {
